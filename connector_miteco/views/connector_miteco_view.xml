@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+
+    <record id="view_envia_mapama_tree" model="ir.ui.view">
+
+      <field name="name">view.envia.mapama.tree</field>
+      <field name="model">mapamas</field>
+      <field name="arch" type="xml">
+        <tree string="envia_mapama" create="false">
+       
+          <field name="x_name"/>
+          <field name="x_estado"/>
+          <field name="x_fecha_creacion"/>
+          
+          <button  string="Envía Mapama" type="object" name="check_di" class="oe_highlight"/>
+
+        </tree>
+
+      </field>
+
+    </record>
+      <record id="view_envia_mapama_form" model="ir.ui.view">
+
+      <field name="name">view.envia.mapama.form</field>
+      <field name="model">mapamas</field>
+      <field name="arch" type="xml">
+       <form>
+           <sheet string="Enviar a mapama">
+               <group col="4">
+                   <field name="x_di_id" can_create="true" can_write="true" modifiers="{}"/>
+                   <field name="x_name" readonly="1" modifiers="{}"/>
+                   <field name="x_id_mapama" readonly="1" modifiers="{}"/>
+                   <field name="x_estado" readonly="1" modifiers="{}"/>
+                   <field name="x_fecha_creacion" readonly="1" modifiers="{}"/>
+                   <field name="x_usuario_mapama" readonly="1" modifiers="{}"/>
+                   <field name="x_codigo_estado" readonly="1" modifiers="{}"/>
+                   <field name="x_empresa" readonly="1" modifiers="{}"/>
+                   <newline/>
+                   <field name="x_debug" readonly="1" colspan="4" modifiers="{}"/><newline/>
+                   <separator/>
+               </group>
+           </sheet>
+          </form>
+
+      </field>
+
+    </record>    
+        
+        
+        
+        
+<!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="action_envia_mapama">
+      <field name="name">action.envia.mapama</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">mapamas</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- server action to the one above -->
+
+
+    <!-- Top menu item -->
+    
+    <menuitem name="MAPAMA" id="mapama_menu_root" groups="base.group_user" parent="studio_customization.green_2eeb683a-486d-4f36-ae36-c2b5b7982c7b"/>
+    <menuitem name="envia_mapama" id="envia_mapama_menu_root" parent="mapama_menu_root" sequence="1"/>
+    <menuitem name="mapama" id="mapama_menu" parent="envia_mapama_menu_root" sequence="1"/>
+    
+       
+
+    </data>
+</odoo>

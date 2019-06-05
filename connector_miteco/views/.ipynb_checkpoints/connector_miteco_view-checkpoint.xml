@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+
+    <record id="view_envia_mapama_tree" model="ir.ui.view">
+
+      <field name="name">view.envia.mapama.tree</field>
+      <field name="model">mapamas</field>
+      <field name="arch" type="xml">
+        <tree string="envia_mapama">
+
+          <field name="x_name"/>
+          <field name="x_estado"/>
+          <field name="x_fecha_creacion"/>
+          <button string="Envía Mapama" type="object" name="send2mapama" class="oe_highlight"/>
+
+        </tree>
+
+      </field>
+
+    </record>
+      <record id="view_envia_mapama_form" model="ir.ui.view">
+
+      <field name="name">view.envia.mapama.form</field>
+      <field name="model">mapamas</field>
+      <field name="arch" type="xml">
+       <form>
+           <sheet string="Enviar a mapama">
+               <group col="4">
+                   <field name="x_di_id" can_create="true" can_write="true" modifiers="{}"/>
+                   <field name="x_name" modifiers="{}"/>
+                   <field name="x_id_mapama" modifiers="{}"/>
+                   <field name="x_estado" modifiers="{}"/>
+                   <field name="x_fecha_creacion" modifiers="{}"/>
+                   <field name="x_usuario_mapama" modifiers="{}"/>
+                   <field name="x_codigo_estado" modifiers="{}"/>
+                   <field name="x_mensaje_estado" modifiers="{}"/>
+                   <newline/>
+                   <field name="x_debug" colspan="4" modifiers="{}"/><newline/>
+                   <separator/>
+               </group>
+           </sheet>
+          </form>
+
+      </field>
+
+    </record>    
+        
+        
+        
+        
+<!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="action_envia_mapama">
+      <field name="name">action.envia.mapama</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">mapamas</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- server action to the one above -->
+
+
+    <!-- Top menu item -->
+    <menuitem name="MAPAMA" id="mapama_menu_root"/>
+    <menuitem name="envia_mapama" id="envia_mapama_menu_root" parent="mapama_menu_root" sequence="1"/>
+    <menuitem name="mapama" id="mapama_menu" parent="envia_mapama_menu_root" sequence="1"/>
+    
+        <!-- menu categories -->
+    <!--
+    <menuitem name="Menu 1" id="extra-addons/mi_modulo.menu_1" parent="extra-addons/mi_modulo.menu_root"/>
+    <menuitem name="Menu 2" id="extra-addons/mi_modulo.menu_2" parent="extra-addons/mi_modulo.menu_root"/>
+    -->
+    <!-- actions -->
+    <!--
+    <menuitem name="List" id="extra-addons/mi_modulo.menu_1_list" parent="extra-addons/mi_modulo.menu_1"
+              action="extra-addons/mi_modulo.action_window"/>
+    <menuitem name="Server to list" id="extra-addons/mi_modulo" parent="extra-addons/mi_modulo.menu_2"
+              action="extra-addons/mi_modulo.action_server"/>
+    -->
+
+    </data>
+</odoo>

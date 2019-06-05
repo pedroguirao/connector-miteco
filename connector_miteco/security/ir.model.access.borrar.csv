@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+acces_mapamas,mapamas,model_mapamas,,1,1,1,1
+acces_x_di,x_di,model_x_di,,1,1,1,1
